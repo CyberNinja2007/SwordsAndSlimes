@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SwordsAndSlimes.WEB", "SwordsAndSlimes.WEB\SwordsAndSlimes.WEB.csproj", "{FB6FC6C0-F71F-4DAF-B18F-BEF956026E21}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SwordsAndSlimes.DAL", "SwordsAndSlimes.DAL\SwordsAndSlimes.DAL.csproj", "{05101A5E-044C-413D-93DB-9825D0075E5C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SwordsAndSlimes.BLL", "SwordsAndSlimes.BLL\SwordsAndSlimes.BLL.csproj", "{1B4AD34B-FB83-4042-81E9-FFC4EB3562B1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FB6FC6C0-F71F-4DAF-B18F-BEF956026E21}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB6FC6C0-F71F-4DAF-B18F-BEF956026E21}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB6FC6C0-F71F-4DAF-B18F-BEF956026E21}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB6FC6C0-F71F-4DAF-B18F-BEF956026E21}.Release|Any CPU.Build.0 = Release|Any CPU
+		{05101A5E-044C-413D-93DB-9825D0075E5C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05101A5E-044C-413D-93DB-9825D0075E5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05101A5E-044C-413D-93DB-9825D0075E5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05101A5E-044C-413D-93DB-9825D0075E5C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1B4AD34B-FB83-4042-81E9-FFC4EB3562B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B4AD34B-FB83-4042-81E9-FFC4EB3562B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B4AD34B-FB83-4042-81E9-FFC4EB3562B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B4AD34B-FB83-4042-81E9-FFC4EB3562B1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

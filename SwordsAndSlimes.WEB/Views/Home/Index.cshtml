@@ -1,0 +1,91 @@
+﻿@{
+    ViewData["Title"] = "Главная";
+}
+
+<div class="text-center">
+    <h1>Добро пожаловать в SwordsAndSlimes!</h1>
+    <hr/>
+    <h2>Топ персонажи:</h2>
+    <div class="container">
+        <div class="row row-cols-md-1 g-4">
+            @foreach (CharacterIndexViewModel item in ViewBag.TopCharacters)
+            {
+                <div class="col">
+                    <div class="card h-100 border-dark">
+                        <a class="text-decoration-none text-dark" asp-controller="Characters" asp-action="About" asp-route-id="@item.Name">
+                            <img class="card-img" src="lib/images/icons/characters/@(item.Class.Trim())Icon.png"
+                                 height="192" alt="Изображение @(item.Class.Trim())а"/>
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <b>@Html.DisplayFor(modelItem => item.Name)</b>
+                                </h5>
+                                <p class="card-subtitle text-muted">
+                                    @Html.DisplayFor(modelItem => item.Class)
+                                    @Html.DisplayFor(modelItem => item.Level) lvl
+                                </p>
+                                <div class="card-text">
+                                    <p>
+                                        HP: @Html.DisplayFor(modelItem => item.Health),
+                                        ATK: @Html.DisplayFor(modelItem => item.Attack)
+                                    </p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+    <hr/>
+    <h2>Топ оружие:</h2>
+    <div class="container">
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            @foreach (WeaponIndexViewModel item in ViewBag.TopWeapons)
+            {
+                <div class="col">
+                    <div class="card h-100 border-dark">
+                        <a class="text-decoration-none text-dark" asp-controller="Weapons" asp-action="About" asp-route-id="@item.Name">
+                            <img class="card-img" src="lib/images/icons/weapons/@(item.Class.Trim())Icon.png"
+                                 height="192" alt="Изображение @(item.Class.Trim())а"/>
+                            <div class="card-body">
+                                <div class="card-text">
+                                    <h5 class="card-title">
+                                        <b>@Html.DisplayFor(modelItem => item.Name)</b>
+                                    </h5>
+                                    <p class="card-subtitle text-muted">
+                                        @Html.DisplayFor(modelItem => item.Class)
+                                        @Html.DisplayFor(modelItem => item.Level) lvl
+                                    </p>
+                                    <p>
+                                        ATK: @Html.DisplayFor(modelItem => item.Attack)
+                                    </p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+    <hr/>
+    <h2>Популярные подземелья:</h2>
+    <div class="container">
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            @foreach (DungeonIndexViewModel item in ViewBag.RandomDungeons)
+            {
+                <div class="col">
+                    <div class="card h-100 border-dark">
+                        <a class="text-decoration-none text-dark" asp-controller="Dungeons" asp-action="About" asp-route-id="@item.Name">
+                            <img class="img-fluid" src ="@(item.Image.Trim())" class="card-img-top" alt="Изображение подземелья @item.Name">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <b>@Html.DisplayFor(modelItem => item.Name)</b>
+                                </h5>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>

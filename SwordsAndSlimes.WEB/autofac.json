@@ -1,0 +1,44 @@
+﻿{
+    "modules": [
+        {
+            "type": "SwordsAndSlimes.BLL.Modules.LoadDALModule, SwordsAndSlimes.BLL",
+            "services": [
+                {
+                    "type": "SwordsAndSlimes.BLL.Modules.LoadDALModule, SwordsAndSlimes.BLL"
+                }
+            ]
+        },
+        {
+            "type": "SwordsAndSlimes.BLL.Modules.CharacterServiceModule, SwordsAndSlimes.BLL",
+            "services": [
+                {
+                    "type": "SwordsAndSlimes.BLL.Modules.CharacterServiceModule, SwordsAndSlimes.BLL"
+                }
+            ]
+        },
+        {
+            "type": "SwordsAndSlimes.BLL.Modules.DungeonServiceModule, SwordsAndSlimes.BLL",
+            "services": [
+                {
+                    "type": "SwordsAndSlimes.BLL.Modules.DungeonServiceModule, SwordsAndSlimes.BLL"
+                }
+            ]
+        },
+        {
+            "type": "SwordsAndSlimes.BLL.Modules.MonsterServiceModule, SwordsAndSlimes.BLL",
+            "services": [
+                {
+                    "type": "SwordsAndSlimes.BLL.Modules.MonsterServiceModule, SwordsAndSlimes.BLL"
+                }
+            ]
+        },
+        {
+            "type": "SwordsAndSlimes.BLL.Modules.WeaponServiceModule, SwordsAndSlimes.BLL",
+            "services": [
+                {
+                    "type": "SwordsAndSlimes.BLL.Modules.WeaponServiceModule, SwordsAndSlimes.BLL"
+                }
+            ]
+        }
+    ]
+}

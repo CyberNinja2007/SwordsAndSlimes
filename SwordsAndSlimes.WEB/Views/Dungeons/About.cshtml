@@ -1,0 +1,68 @@
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+@model SwordsAndSlimes.WEB.Models.DungeonAboutViewModel
+
+@{
+    ViewData["Title"] = "Детали подземелья";
+    Layout = "_Layout";
+}
+<h1><b>@Model.Name</b></h1>
+<h2>Подробнее о подземелье</h2>
+<hr/>
+<div class="container flex-column">
+    <div>
+        <dl class="row">
+            <img class="img-fluid" src ="@(Model.Image.Trim())" width="1000" height="500" alt="Изображение @Model.Name"/>
+        </dl>
+    </div>
+    <div class="flex-row">
+        @if (Model.Characters.Count != 0)
+        {
+            <h3>Исследователи:</h3>
+            @foreach (CharacterIndexViewModel character in Model.Characters)
+            {
+                <div class="row row-cols-1 row-cols-md-3 mr-3 g-4">
+                    <div class="col">
+                        <div class="card h-100 border-dark">
+                            <a class="text-decoration-none text-dark" asp-controller="Characters" asp-action="About" asp-route-id="@character.Name">
+                                <img class="card-img" src="\lib\images\icons\characters\@(character.Class.Trim())Icon.png"
+                                     height="162" width="128" alt="Изображение @(character.Class.Trim())а"/>
+                                <div class="card-body">
+                                    <h5 class="card-title">
+                                        <b>@Html.DisplayFor(modelItem => character.Name)</b>
+                                    </h5>
+                                    <p class="card-subtitle text-muted">
+                                        @Html.DisplayFor(modelItem => character.Class)
+                                        @Html.DisplayFor(modelItem => character.Level) lvl
+                                    </p>
+                                    <div class="card-text">
+                                        <p>
+                                            HP: @Html.DisplayFor(modelItem => character.Health),
+                                            ATK: @Html.DisplayFor(modelItem => character.Attack)
+                                        </p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+        else
+        {
+            <h3>Ещё никто не открыл данное подземелье.</h3>
+        }
+    </div>
+    <div>
+        
+    </div>
+</div>
+<div>
+    @if (User.IsInRole("Administrator"))
+    {
+        <a class="btn btn-dark" asp-action="Edit" asp-route-id="@Model.Name">Изменить</a>
+        <a class="btn btn-danger" asp-action="Delete" asp-route-id="@Model.Name">Удалить</a>
+    }
+    <a class="btn btn-dark" asp-action="Index">Обратно в список</a>
+</div>

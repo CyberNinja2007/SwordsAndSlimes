@@ -1,0 +1,16 @@
+﻿@model List<object[]>
+
+<h3>Результаты:</h3>
+<table class="table table-dark table-responsive">
+    @foreach (var resArr in Model)
+    {
+        <tr>
+            @foreach (var res in resArr)
+            {
+                <td>
+                    @res
+                </td>
+            }
+        </tr>
+    }
+</table>

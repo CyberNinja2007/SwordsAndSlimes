@@ -1,0 +1,100 @@
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+@model List<SwordsAndSlimes.WEB.Models.WeaponIndexViewModel>
+
+@{
+    ViewData["Title"] = "Оружия";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Оружия</h1>
+<hr/>
+
+@if (SignInManager.IsSignedIn(User))
+{
+    <div class="container text-center">
+        <h3>Кастомный SQL запрос</h3>
+        <form asp-controller="Filter" asp-action="Filter" id="searchForm">
+            <p>
+                <b>SELECT</b> <input type="text" name="query1" required="required"/> <b>FROM WEAPONS</b> <input type="text" name="query2"/>
+                <input type="submit" class="btn btn-dark" value="Выполнить"/>
+            </p>
+        </form>
+        <div id="results">
+            
+        </div>
+    </div>
+    <hr/>
+}
+@if (User.IsInRole("Administrator"))
+{
+    <p>
+        <a class="btn btn-dark ml-4"  asp-action="Create">Создать</a>
+    </p>
+}
+<div class="text-center" id="weapons">
+    <div class="container">
+        @{
+            int i = 0;
+            while (i != Model.Count)
+            {
+                <div class="row row-cols-auto row-cols-md-2 g-4 mb-4">
+                    @for (int j = 0; j < 5; j++, i++)
+                    {
+                        if (i == Model.Count)
+                        {
+                            break;
+                        }
+                        
+                        <div class="col">
+                            <div class="card h-100 border-dark">
+                                <a class="text-decoration-none text-dark" asp-action="About" asp-route-id="@Model[i].Name">
+                                    <img class="card-img" src="lib/images/icons/weapons/@(Model[i].Class.Trim())Icon.png"
+                                         height="192" alt="Изображение @(Model[i].Class.Trim())а"/>
+                                    <div class="card-body">
+                                        <h5 class="card-title">
+                                            <b>@Html.DisplayFor(modelItem => Model[i].Name)</b>
+                                        </h5>
+                                        <p class="card-subtitle text-muted">
+                                            @Html.DisplayFor(modelItem => Model[i].Class)
+                                            @Html.DisplayFor(modelItem => Model[i].Level) lvl
+                                        </p>
+                                        <div class="card-text">
+                                            <p>
+                                                ATK: @Html.DisplayFor(modelItem => Model[i].Attack)
+                                            </p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    }
+                </div>
+            }
+        }
+    </div>
+</div>
+
+@section Scripts
+{
+    <script>
+    $(document).ready(function () {
+            $('#searchForm').submit(function (event) {
+                event.preventDefault();
+                var $form = $(this);
+                var input1 = $('[name = "query1"]').val();
+                var input2 = $('[name = "query2"]').val();
+                
+                $.ajax({
+                  type: "POST",
+                  url: $form.attr("action"),
+                  data: { query: 'SELECT ' + input1 + ' FROM Weapons ' + input2},
+                  success: function(res){
+                      $('#results').html(res);
+                  }
+                });
+            });
+        });
+    </script>
+}

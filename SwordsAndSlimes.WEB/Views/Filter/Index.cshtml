@@ -1,0 +1,45 @@
+﻿@{
+    ViewBag.Title = "Запрос";
+    Layout = "_Layout";
+}
+
+<h3>Кастомный SQL запрос</h3>
+
+<hr/>
+
+<form asp-action="Filter" id="searchForm">
+    <p>
+        <input type="text" name="query" id="query"/>
+        <input type="submit" class="btn btn-dark" value="Выполнить"/>
+    </p>
+</form>
+
+<p>
+    Здесь вы можете написать свой запрос к любому объекту базы данных, например:
+    <b>SELECT Name FROM Characters</b> 
+</p>
+
+<div id="results">
+            
+</div>
+
+@section Scripts
+{
+    <script>
+    $(document).ready(function () {
+            $('#searchForm').submit(function (event) {
+                event.preventDefault();
+                var $form = $(this);
+                
+                $.ajax({
+                  type: "POST",
+                  url: $form.attr("action"),
+                  data: $form.serialize(),
+                  success: function(res){
+                      $('#results').html(res);
+                  }
+                });
+            });
+        });
+    </script>
+}

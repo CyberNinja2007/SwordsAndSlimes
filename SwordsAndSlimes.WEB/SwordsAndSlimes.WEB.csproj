@@ -1,0 +1,54 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net5.0</TargetFramework>
+        <UserSecretsId>aspnet-SwordsAndSlimes-0C28509E-91F0-4564-AEA8-6B5761A49E6C</UserSecretsId>
+        <RootNamespace>SwordsAndSlimes.WEB</RootNamespace>
+    </PropertyGroup>
+	
+	<PropertyGroup>
+		<MvcBuildViews>true</MvcBuildViews>
+	</PropertyGroup>
+
+    <ItemGroup>
+        <None Include="wwwroot\lib\images\icons\ЛучникIcon.png" />
+        <None Include="wwwroot\lib\images\pictures\archerPic.png" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Autofac" Version="6.3.0" />
+        <PackageReference Include="Autofac.Configuration" Version="6.0.0" />
+        <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="7.2.0" />
+        <PackageReference Include="AutoMapper" Version="11.0.0" />
+        <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="5.0.13" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.13">
+          <PrivateAssets>all</PrivateAssets>
+          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+        <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="5.0.2" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="Views\Characters\Create.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Characters\Delete.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Characters\Details.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Characters\Edit.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Characters\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Dungeon\Details.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Dungeon\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Monster\Details.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Monster\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Weapon\Details.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Weapon\Index.cshtml" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Extensions" />
+      <Folder Include="Services" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\SwordsAndSlimes.BLL\SwordsAndSlimes.BLL.csproj" />
+    </ItemGroup>
+
+</Project>

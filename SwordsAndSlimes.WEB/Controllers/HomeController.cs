@@ -33,9 +33,9 @@ namespace SwordsAndSlimes.WEB.Controllers
         [AllowAnonymous]
         public IActionResult Index()
         {
-            var characters = _characters.GetAll().OrderByDescending(x => x.Level).Take(5);
-            var dungeons = _dungeons.GetAll().Take(5);
-            var weapons = _weapons.GetAll().OrderByDescending(x => x.Level).Take(5);
+            var characters = _characters.GetAll().OrderByDescending(x => x.Level).Take(4);
+            var dungeons = _dungeons.GetAll().Take(4);
+            var weapons = _weapons.GetAll().OrderByDescending(x => x.Level).Take(4);
             
             ViewBag.TopCharacters = _mapper.Map<IEnumerable<CharacterDTO>,List<CharacterIndexViewModel>>(characters);
             ViewBag.RandomDungeons = _mapper.Map<IEnumerable<DungeonDTO>,List<DungeonIndexViewModel>>(dungeons);

@@ -42,31 +42,12 @@ namespace SwordsAndSlimes.WEB.Controllers
                 return NotFound();
             }
 
-            var character = _characterService.GetAll().ToList().FirstOrDefault(m => m.Name == id);
+            var character = _characterService.Get(id);
             
             if (character == null)
             {
                 return NotFound();
             }
-            
-            /*foreach (var weapon in _context.CharactersWeapons)
-            {
-                if (weapon.CharacterName == character.Name)
-                {
-                    weapons.Add(_context.Weapons.Find(weapon.WeaponName));
-                }
-            }
-
-            foreach (var battle in _context.Battles)
-            {
-                if (battle.CharacterName == character.Name)
-                {
-                    monsters.Add(_context.Monsters.Find(battle.MonsterName));
-                }
-            } 
-            
-            ViewBag.Weapons = weapons;
-            ViewBag.Monsters = monsters;*/
             
             return View(_mapper.Map<CharacterAboutViewModel>(character));
         }

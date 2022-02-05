@@ -24,7 +24,11 @@ namespace SwordsAndSlimes.DAL.Repositories
 
         public Monster Get(string name)
         {
-            return  _context.Monsters.FirstOrDefault(m => m.Name == name);
+            return  _context.Monsters
+                .Include(c => c.DungeonMonsters)
+                .ThenInclude(c => c.Dungeon)
+                .AsNoTracking()
+                .FirstOrDefault(m => m.Name == name);
         }
 
         public void Create(Monster monster)

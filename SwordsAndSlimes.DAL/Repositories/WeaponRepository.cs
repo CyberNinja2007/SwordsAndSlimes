@@ -24,7 +24,13 @@ namespace SwordsAndSlimes.DAL.Repositories
 
         public Weapon Get(string name)
         {
-            return  _context.Weapons.FirstOrDefault(m => m.Name == name);
+            return  _context.Weapons
+                .Include(c => c.CharactersWeapons)
+                .ThenInclude(c => c.Character)
+                .Include(c => c.DungeonWeapons)
+                .ThenInclude(c => c.Dungeon)
+                .AsNoTracking()
+                .FirstOrDefault(m => m.Name == name);
         }
 
         public void Create(Weapon weapon)

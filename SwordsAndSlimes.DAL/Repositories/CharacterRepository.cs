@@ -15,12 +15,6 @@ namespace SwordsAndSlimes.DAL.Repositories
         public CharacterRepository(CourseachContext context)
         {
             _context = context; 
-            /*_context.CharactersWeapons.Add(new CharactersWeapon()
-            {
-                Character = Get("TEST"),
-                Weapon = _context.Weapons.FirstOrDefault(m => m.Name == "Test")
-            });
-            _context.SaveChanges();*/
         }
 
         public IEnumerable<Character> GetAll()
@@ -31,6 +25,11 @@ namespace SwordsAndSlimes.DAL.Repositories
         public Character Get(string name)
         {
             return  _context.Characters
+                .Include(c => c.CharactersWeapons)
+                .ThenInclude(c => c.Weapon)
+                .Include(c => c.Battles)
+                .ThenInclude(c => c.Monster)
+                .AsNoTracking()
                 .FirstOrDefault(m => m.Name == name);
         }
 

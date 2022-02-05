@@ -24,7 +24,11 @@ namespace SwordsAndSlimes.DAL.Repositories
 
         public Dungeon Get(string name)
         {
-            return  _context.Dungeons.FirstOrDefault(m => m.Name == name);
+            return  _context.Dungeons
+                .Include(c => c.CharactersInDungeons)
+                .ThenInclude(c => c.Character)
+                .AsNoTracking()
+                .FirstOrDefault(m => m.Name == name);
         }
 
         public void Create(Dungeon dungeon)

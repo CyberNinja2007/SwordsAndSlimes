@@ -15,6 +15,7 @@ namespace SwordsAndSlimes.WEB.Controllers
         private IMapper _mapper = new MapperConfiguration(cfg =>
         {
             cfg.CreateMap<CharacterDTO, CharacterIndexViewModel>();
+            cfg.CreateMap<DungeonDTO, DungeonIndexViewModel>();
             cfg.CreateMap<WeaponDTO, WeaponIndexViewModel>();
             cfg.CreateMap<WeaponDTO, WeaponAboutViewModel>();
             cfg.CreateMap<WeaponIndexViewModel, WeaponDTO>();

@@ -35,8 +35,6 @@ namespace SwordsAndSlimes.WEB.Controllers
         [AllowAnonymous]
         public ActionResult About(string id)
         {
-            //List<Character> characters = new List<Character>();
-            
             if (id == null)
             {
                 return NotFound();
@@ -48,22 +46,6 @@ namespace SwordsAndSlimes.WEB.Controllers
             {
                 return NotFound();
             }
-
-            /*foreach (var character in dungeon.Characters)
-            {
-                characters.Add(character);
-            }
-            
-            foreach (var charactersInDungeon in _context.CharactersInDungeons)
-            {
-                if (charactersInDungeon.DungeonName == dungeon.Name)
-                {
-                    characters.Add(_context.Characters.Find(charactersInDungeon.CharacterName));
-                }
-            }
-
-            ViewBag.Characters = characters;
-            */
             
             return View(_mapper.Map<DungeonAboutViewModel>(dungeon));
         }

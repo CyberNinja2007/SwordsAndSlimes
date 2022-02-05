@@ -35,8 +35,6 @@ namespace SwordsAndSlimes.WEB.Controllers
         [AllowAnonymous]
         public ActionResult About(string id)
         {
-            //List<Dungeon> dungeons = new List<Dungeon>();
-            
             if (id == null)
             {
                 return NotFound();
@@ -48,21 +46,6 @@ namespace SwordsAndSlimes.WEB.Controllers
             {
                 return NotFound();
             }
-            
-            /*foreach (var dungeon in monster.Dungeons)
-            {
-                dungeons.Add(dungeon);
-            }
-
-            foreach (var dungeonMonster in _context.DungeonMonsters)
-            {
-                if (dungeonMonster.MonsterName == monster.Name)
-                {
-                    dungeons.Add(_context.Dungeons.Find(dungeonMonster.DungeonName));
-                }
-            }
-
-            ViewBag.Dungeons = dungeons;*/
             
             return View(_mapper.Map<MonsterAboutViewModel>(monster));
         }

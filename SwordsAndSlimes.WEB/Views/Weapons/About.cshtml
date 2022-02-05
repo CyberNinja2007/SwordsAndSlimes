@@ -9,9 +9,9 @@
 <h1><b>@Model.Name</b></h1>
 <h2>Подробнее об оружии</h2>
 <hr/>
-<div class="container flex-row">
-    <div>
-        <img class="img-fluid" src ="\lib\images\pictures\weapons\@(Model.Class.Trim()).png" alt="Картинка @Model.Class"/>
+<div class="d-flex flex-column flex-md-row justify-content-between">
+    <div class="container">
+        <img class="img-fluid" src ="\lib\images\pictures\weapons\@(Model.Class.Trim()).png" width="400" height="700" alt="Картинка @Model.Class"/>
         <dl class="row">
             <dt class = "col-sm-2">
                 @Html.DisplayNameFor(model => model.Level)
@@ -33,49 +33,49 @@
             </dd>
         </dl>
     </div>
-    <div>
+    <div class="container">
         @if (Model.Characters.Count != 0)
         {
             <h3>Владелец:</h3>
-            foreach (CharacterIndexViewModel character in Model.Characters)
-            {
-                <div class="row row-cols-1 row-cols-md-3 mb-3 g-4">
-                        <div class="col">
-                            <div class="card h-100 border-dark">
-                                <a class="text-decoration-none text-dark" asp-controller="Characters" asp-action="About" asp-route-id="@character.Name">
-                                    <img class="card-img" src="\lib\images\icons\characters\@(character.Class.Trim())Icon.png"
-                                         height="162" width="128" alt="Изображение @(character.Class.Trim())а"/>
-                                    <div class="card-body">
-                                        <h5 class="card-title">
-                                            <b>@Html.DisplayFor(modelItem => character.Name)</b>
-                                        </h5>
-                                        <p class="card-subtitle text-muted">
-                                            @Html.DisplayFor(modelItem => character.Class)
-                                            @Html.DisplayFor(modelItem => character.Level) lvl
+            <div class="row">
+                @foreach (CharacterIndexViewModel character in Model.Characters)
+                {
+                    <div class="col-10 col-md-6 m-4 m-md-0">
+                        <div class="card h-100 border-dark">
+                            <a class="text-decoration-none text-dark" asp-controller="Characters" asp-action="About" asp-route-id="@character.Name">
+                                <img class="card-img" src="\lib\images\icons\characters\@(character.Class.Trim())Icon.png"
+                                      alt="Изображение @(character.Class.Trim())а"/>
+                                <div class="card-body">
+                                    <h5 class="card-title">
+                                        <b>@Html.DisplayFor(modelItem => character.Name)</b>
+                                    </h5>
+                                    <p class="card-subtitle text-muted">
+                                        @Html.DisplayFor(modelItem => character.Class)
+                                        @Html.DisplayFor(modelItem => character.Level) lvl
+                                    </p>
+                                    <div class="card-text">
+                                        <p>
+                                            HP: @Html.DisplayFor(modelItem => character.Health),
+                                            ATK: @Html.DisplayFor(modelItem => character.Attack)
                                         </p>
-                                        <div class="card-text">
-                                            <p>
-                                                HP: @Html.DisplayFor(modelItem => character.Health),
-                                                ATK: @Html.DisplayFor(modelItem => character.Attack)
-                                            </p>
-                                        </div>
                                     </div>
-                                </a>
-                            </div>
+                                </div>
+                            </a>
                         </div>
-                </div>
-            }
+                    </div>
+                }
+            </div>
         }
         else if (Model.Dungeons.Count != 0)
         {
             <h3>Подземелье:</h3>
-            foreach (DungeonIndexViewModel dungeon in Model.Dungeons)
-            {
-                <div class="row row-cols-1 row-cols-md-3 mb-3 g-4">
-                    <div class="col">
+            <div class="row">
+                @foreach (DungeonIndexViewModel dungeon in Model.Dungeons)
+                {
+                    <div class="col-10 col-md-6 m-4 m-md-0">
                         <div class="card h-100 border-dark">
                             <a class="text-decoration-none text-dark" asp-controller="Dungeons" asp-action="About" asp-route-id="@dungeon.Name">
-                                <img class="img-fluid" src ="@(dungeon.Image.Trim())" class="card-img-top" height="162" width="128" alt="Изображение подземелья @dungeon.Name">
+                                <img src="@(dungeon.Image.Trim())" class="card-img-top img-fluid" alt="Изображение подземелья @dungeon.Name">
                                 <div class="card-body">
                                     <h5 class="card-title">
                                         <b>@Html.DisplayFor(modelItem => dungeon.Name)</b>
@@ -84,8 +84,8 @@
                             </a>
                         </div>
                     </div>
-                </div>
-            }
+                }
+            </div>
         }
         else
         {

@@ -10,24 +10,23 @@
 <h1><b>@Model.Name</b></h1>
 <h2>Подробнее о подземелье</h2>
 <hr/>
-<div class="container flex-column">
-    <div>
+<div class="d-flex flex-column justify-content-between">
+    <div class="container">
         <dl class="row">
             <img class="img-fluid" src ="@(Model.Image.Trim())" width="1000" height="500" alt="Изображение @Model.Name"/>
         </dl>
     </div>
-    <div class="flex-row">
+    <div class="container">
         @if (Model.Characters.Count != 0)
         {
             <h3>Исследователи:</h3>
-            @foreach (CharacterIndexViewModel character in Model.Characters)
-            {
-                <div class="row row-cols-1 row-cols-md-3 mr-3 g-4">
-                    <div class="col">
+            <div class="row">
+                @foreach (CharacterIndexViewModel character in Model.Characters)
+                {
+                    <div class="col-10 col-md-3 m-4 m-md-0 mb-md-4">
                         <div class="card h-100 border-dark">
                             <a class="text-decoration-none text-dark" asp-controller="Characters" asp-action="About" asp-route-id="@character.Name">
-                                <img class="card-img" src="\lib\images\icons\characters\@(character.Class.Trim())Icon.png"
-                                     height="162" width="128" alt="Изображение @(character.Class.Trim())а"/>
+                                <img class="card-img" src="\lib\images\icons\characters\@(character.Class.Trim())Icon.png" alt="Изображение @(character.Class.Trim())а"/>
                                 <div class="card-body">
                                     <h5 class="card-title">
                                         <b>@Html.DisplayFor(modelItem => character.Name)</b>
@@ -46,16 +45,13 @@
                             </a>
                         </div>
                     </div>
-                </div>
-            }
+                }
+            </div>
         }
         else
         {
             <h3>Ещё никто не открыл данное подземелье.</h3>
         }
-    </div>
-    <div>
-        
     </div>
 </div>
 <div>

@@ -10,9 +10,9 @@
 <h1><b>@Model.Name</b></h1>
 <h2>Подробнее о персонаже</h2>
 <hr/>
-<div class="container flex-row">
-    <div>
-        <img class="img-fluid" src ="\lib\images\pictures\characters\@(Model.Class.Trim()).png" alt="Картинка @Model.Class"/>
+<div class="d-flex flex-column flex-md-row justify-content-between">
+    <div class="container">
+        <img class="img-fluid" src ="\lib\images\pictures\characters\@(Model.Class.Trim()).png" width="570" height="450" alt="Картинка @Model.Class"/>
         <dl class="row">
             <dt class="col-sm-2">
                 @Html.DisplayNameFor(model => model.Level)
@@ -42,15 +42,15 @@
     </div>
     @if (Model.Weapons.Count != 0)
     {
-        <div class="container flex-column">
+        <div class="container">
             <h3>Оружие персонажа:</h3>
-            @foreach (WeaponIndexViewModel item in Model.Weapons)
-            {
-                <div class="row row-cols-1 row-cols-md-3 g-4">
-                    <div class="col">
+            <div class="row">
+                @foreach (WeaponIndexViewModel item in Model.Weapons)
+                {
+                    <div class="col-10 col-md-6 m-4 m-md-0">
                         <div class="card h-100 border-dark">
                             <a class="text-decoration-none text-dark" asp-controller="Weapons" asp-action="About" asp-route-id="@item.Name">
-                                <img class="card-img" src="\lib\images\icons\weapons\@(item.Class.Trim())Icon.png"
+                                <img class="card-img img-fluid" src="\lib\images\icons\weapons\@(item.Class.Trim())Icon.png"
                                      alt="Изображение @(item.Class.Trim())"/>
                                 <div class="card-body">
                                     <div class="card-text">
@@ -69,21 +69,22 @@
                             </a>
                         </div>
                     </div>
-                </div>
-            }
+                }
+            </div>
         </div>
     }
-    @if (Model.Monsters.Count != 0)
+</div>
+@if (Model.Monsters.Count != 0)
     {
-        <div class="container flex-column">
+        <div class="container">
             <h3>Враги:</h3>
-            @foreach (MonsterIndexViewModel item in Model.Monsters)
-            {
-                <div class="row row-cols-1 row-cols-md-3 mb-3 g-4">
-                    <div class="col">
+            <div class="row">
+                @foreach (MonsterIndexViewModel item in Model.Monsters)
+                {
+                    <div class="col-10 col-md-3 m-4 m-md-0 mb-md-4">
                         <div class="card h-100 border-dark">
                             <a class="text-decoration-none text-dark" asp-controller="Monsters" asp-action="About" asp-route-id="@item.Name">
-                                <img class="card-img" src="\lib\images\pictures\monsters\@(item.Name.Trim()).png" alt="Изображение @(item.Class.Trim())"/>
+                                <img class="card-img img-fluid" src="\lib\images\pictures\monsters\@(item.Name.Trim()).png" alt="Изображение @(item.Class.Trim())"/>
                                 <div class="card-body">
                                     <h5 class="card-title">
                                         <b>@Html.DisplayFor(modelItem => item.Name)</b>
@@ -102,15 +103,13 @@
                             </a>
                         </div>
                     </div>
-                </div>
-            }
+                }
+            </div>
         </div>
     }
-</div>
 <div>
     @if (User.IsInRole("Administrator"))
     {
-        @*<a class="btn btn-danger" asp-action="ChangeWeapon" asp-route-id="@Model.Name">Изменить оружие</a>*@
         <a class="btn btn-dark" asp-action="Edit" asp-route-id="@Model.Name">Изменить</a>
         <a class="btn btn-danger" asp-action="Delete" asp-route-id="@Model.Name">Удалить</a>
     }

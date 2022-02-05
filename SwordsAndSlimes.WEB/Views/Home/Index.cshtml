@@ -7,14 +7,14 @@
     <hr/>
     <h2>Топ персонажи:</h2>
     <div class="container">
-        <div class="row row-cols-md-1 g-4">
+        <div class="row">
             @foreach (CharacterIndexViewModel item in ViewBag.TopCharacters)
             {
-                <div class="col">
+                <div class="col-10 col-md-3 m-4 m-md-0">
                     <div class="card h-100 border-dark">
                         <a class="text-decoration-none text-dark" asp-controller="Characters" asp-action="About" asp-route-id="@item.Name">
-                            <img class="card-img" src="lib/images/icons/characters/@(item.Class.Trim())Icon.png"
-                                 height="192" alt="Изображение @(item.Class.Trim())а"/>
+                            <img class="card-img hei" src="lib/images/icons/characters/@(item.Class.Trim())Icon.png"
+                                 height="" alt="Изображение @(item.Class.Trim())а"/>
                             <div class="card-body">
                                 <h5 class="card-title">
                                     <b>@Html.DisplayFor(modelItem => item.Name)</b>
@@ -39,14 +39,14 @@
     <hr/>
     <h2>Топ оружие:</h2>
     <div class="container">
-        <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div class="row g-4">
             @foreach (WeaponIndexViewModel item in ViewBag.TopWeapons)
             {
-                <div class="col">
+                <div class="col-10 col-md-3 m-4 m-md-0">
                     <div class="card h-100 border-dark">
                         <a class="text-decoration-none text-dark" asp-controller="Weapons" asp-action="About" asp-route-id="@item.Name">
                             <img class="card-img" src="lib/images/icons/weapons/@(item.Class.Trim())Icon.png"
-                                 height="192" alt="Изображение @(item.Class.Trim())а"/>
+                                 height="" alt="Изображение @(item.Class.Trim())а"/>
                             <div class="card-body">
                                 <div class="card-text">
                                     <h5 class="card-title">
@@ -70,10 +70,10 @@
     <hr/>
     <h2>Популярные подземелья:</h2>
     <div class="container">
-        <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div class="row">
             @foreach (DungeonIndexViewModel item in ViewBag.RandomDungeons)
             {
-                <div class="col">
+                <div class="col-10 col-md-3 m-4 m-md-0">
                     <div class="card h-100 border-dark">
                         <a class="text-decoration-none text-dark" asp-controller="Dungeons" asp-action="About" asp-route-id="@item.Name">
                             <img class="img-fluid" src ="@(item.Image.Trim())" class="card-img-top" alt="Изображение подземелья @item.Name">

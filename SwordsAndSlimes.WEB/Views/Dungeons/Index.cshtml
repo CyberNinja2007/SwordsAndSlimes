@@ -34,34 +34,23 @@
 }
 <div class="text-center" id="dungeons">
     <div class="container">
-        @{
-            int i = 0;
-            while (i != Model.Count)
+        <div class="row">
+            @for (int i = 0; i < Model.Count; i++)
             {
-                <div class="row row-cols-auto row-cols-md-2 g-4 mb-4">
-                    @for (int j = 0; j < 5; j++, i++)
-                    {
-                        if (i == Model.Count)
-                        {
-                            break;
-                        }
-                        
-                        <div class="col">
-                            <div class="card h-100 border-dark">
-                                <a class="text-decoration-none text-dark" asp-action="About" asp-route-id="@Model[i].Name">
-                                    <img class="card-img" src="@(Model[i].Image.Trim())" alt="Изображение @(Model[i].Name.Trim())"/>
-                                    <div class="card-body">
-                                        <h5 class="card-title">
-                                            <b>@Html.DisplayFor(modelItem => Model[i].Name)</b>
-                                        </h5>
-                                    </div>
-                                </a>
+                <div class="col-10 col-md-3 m-4 m-md-0 mb-md-4">
+                    <div class="card h-100 border-dark">
+                        <a class="text-decoration-none text-dark" asp-action="About" asp-route-id="@Model[i].Name">
+                            <img class="card-img" src="@(Model[i].Image.Trim())" alt="Изображение @(Model[i].Name.Trim())"/>
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <b>@Html.DisplayFor(modelItem => Model[i].Name)</b>
+                                </h5>
                             </div>
-                        </div>
-                    }
+                        </a>
+                    </div>
                 </div>
             }
-        }
+        </div>
     </div>
 </div>
 

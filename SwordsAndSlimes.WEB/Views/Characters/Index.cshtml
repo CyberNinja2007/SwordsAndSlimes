@@ -35,45 +35,34 @@
 }
 <div class="text-center" id="characters">
     <div class="container">
-        @{
-            int i = 0;
-            while (i != Model.Count)
+        <div class="row">
+            @for (int i = 0; i < Model.Count; i++)
             {
-                <div class="row row-cols-auto row-cols-md-2 g-5 mb-4">
-                    @for (int j = 0; j < 5; j++, i++)
-                    {
-                        if (i == Model.Count)
-                        {
-                            break;
-                        }
-                        
-                        <div class="col">
-                            <div class="card h-100 border-dark">
-                                <a class="text-decoration-none text-dark" asp-action="About" asp-route-id="@Model[i].Name">
-                                    <img class="card-img" src="lib/images/icons/characters/@(Model[i].Class.Trim())Icon.png"
-                                         height="192" alt="Изображение @(Model[i].Class.Trim())а"/>
-                                    <div class="card-body">
-                                        <h5 class="card-title">
-                                            <b>@Html.DisplayFor(modelItem => Model[i].Name)</b>
-                                        </h5>
-                                        <p class="card-subtitle text-muted">
-                                            @Html.DisplayFor(modelItem => Model[i].Class)
-                                            @Html.DisplayFor(modelItem => Model[i].Level) lvl
-                                        </p>
-                                        <div class="card-text">
-                                            <p>
-                                                HP: @Html.DisplayFor(modelItem => Model[i].Health),
-                                                ATK: @Html.DisplayFor(modelItem => Model[i].Attack)
-                                            </p>
-                                        </div>
-                                    </div>
-                                </a>
+                <div class="col-10 col-md-3 m-4 m-md-0 mb-md-4">
+                    <div class="card h-100 border-dark">
+                        <a class="text-decoration-none text-dark" asp-action="About" asp-route-id="@Model[i].Name">
+                            <img class="card-img" src="lib/images/icons/characters/@(Model[i].Class.Trim())Icon.png"
+                                 height="" alt="Изображение @(Model[i].Class.Trim())а"/>
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <b>@Html.DisplayFor(modelItem => Model[i].Name)</b>
+                                </h5>
+                                <p class="card-subtitle text-muted">
+                                    @Html.DisplayFor(modelItem => Model[i].Class)
+                                    @Html.DisplayFor(modelItem => Model[i].Level) lvl
+                                </p>
+                                <div class="card-text">
+                                    <p>
+                                        HP: @Html.DisplayFor(modelItem => Model[i].Health),
+                                        ATK: @Html.DisplayFor(modelItem => Model[i].Attack)
+                                    </p>
+                                </div>
                             </div>
-                        </div>
-                    }
+                        </a>
+                    </div>
                 </div>
             }
-        }
+        </div>
     </div>
 </div>
 

@@ -7,7 +7,7 @@ namespace SwordsAndSlimes.DAL.Models
         public string CharacterName { get; set; }
         public string WeaponName { get; set; }
 
-        public virtual Character Character { get; set; }
-        public virtual Weapon Weapon { get; set; }
+        public Character Character { get; set; }
+        public Weapon Weapon { get; set; }
     }
 }

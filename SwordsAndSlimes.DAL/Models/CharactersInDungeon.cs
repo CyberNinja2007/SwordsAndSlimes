@@ -7,7 +7,7 @@ namespace SwordsAndSlimes.DAL.Models
         public string DungeonName { get; set; }
         public string CharacterName { get; set; }
 
-        public virtual Character Character { get; set; }
-        public virtual Dungeon Dungeon { get; set; }
+        public Character Character { get; set; }
+        public Dungeon Dungeon { get; set; }
     }
 }

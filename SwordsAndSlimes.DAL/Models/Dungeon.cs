@@ -15,8 +15,8 @@ namespace SwordsAndSlimes.DAL.Models
         public string Name { get; set; }
         public string Image { get; set; }
 
-        public virtual ICollection<CharactersInDungeon> CharactersInDungeons { get; set; }
-        public virtual ICollection<DungeonMonster> DungeonMonsters { get; set; }
-        public virtual ICollection<DungeonWeapon> DungeonWeapons { get; set; }
+        public ICollection<CharactersInDungeon> CharactersInDungeons { get; set; }
+        public ICollection<DungeonMonster> DungeonMonsters { get; set; }
+        public ICollection<DungeonWeapon> DungeonWeapons { get; set; }
     }
 }

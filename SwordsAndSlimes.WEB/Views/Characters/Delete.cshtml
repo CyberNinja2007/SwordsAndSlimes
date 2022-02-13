@@ -34,6 +34,36 @@
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Class)
         </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Defence)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Defence) 
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CritDamage)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CritDamage) %
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CritChance)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CritChance) %
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.EnergyRecharge)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.EnergyRecharge) %
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Endurance)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Endurance)
+        </dd>
     </dl>
     
     <form asp-action="Delete">

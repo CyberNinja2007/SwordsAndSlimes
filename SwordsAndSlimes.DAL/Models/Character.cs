@@ -12,10 +12,15 @@ namespace SwordsAndSlimes.DAL.Models
             CharactersWeapons = new HashSet<CharactersWeapon>();
         }
         public string Name { get; set; }
-        public int? Level { get; set; }
-        public int? Health { get; set; }
-        public int? Attack { get; set; }
+        public int Level { get; set; }
+        public int Health { get; set; }
+        public int Attack { get; set; }
         public string Class { get; set; }
+        public int Defence { get; set; }
+        public int CritDamage { get; set; }
+        public int CritChance { get; set; }
+        public int EnergyRecharge { get; set; }
+        public int Endurance { get; set; }
 
         public ICollection<Battle> Battles { get; set; }
         public ICollection<CharactersInDungeon> CharactersInDungeons { get; set; }

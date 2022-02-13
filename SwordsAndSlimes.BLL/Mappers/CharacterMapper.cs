@@ -14,7 +14,12 @@ namespace SwordsAndSlimes.BLL.Mappers
                 Class = character.Class,
                 Level = character.Level,
                 Attack = character.Attack,
-                Health = character.Health
+                Health = character.Health,
+                Defence = character.Defence,
+                CritDamage = character.CritDamage,
+                CritChance = character.CritChance,
+                EnergyRecharge = character.EnergyRecharge,
+                Endurance = character.Endurance
             };
         }
         
@@ -27,6 +32,11 @@ namespace SwordsAndSlimes.BLL.Mappers
                 Level = character.Level,
                 Attack = character.Attack,
                 Health = character.Health,
+                Defence = character.Defence,
+                CritDamage = character.CritDamage,
+                CritChance = character.CritChance,
+                EnergyRecharge = character.EnergyRecharge,
+                Endurance = character.Endurance,
                 Monsters = character.Battles.Select(x => new MonsterDTO()
                 {
 

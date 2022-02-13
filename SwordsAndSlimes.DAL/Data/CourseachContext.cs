@@ -37,9 +37,15 @@ namespace SwordsAndSlimes.DAL.Data
                     .HasMaxLength(15)
                     .IsFixedLength(true);
 
-                entity.Property(e => e.Health).HasDefaultValueSql("((0))");
+                entity.Property(e => e.Defence).HasDefaultValueSql("((0))");
 
-                entity.Property(e => e.Level).HasDefaultValueSql("((0))");
+                entity.Property(e => e.CritDamage).HasDefaultValueSql("((0))");
+
+                entity.Property(e => e.CritChance).HasDefaultValueSql("((0))");
+
+                entity.Property(e => e.EnergyRecharge).HasDefaultValueSql("((0))");
+
+                entity.Property(e => e.Endurance).HasDefaultValueSql("((0))");
 
                 entity.ToTable("Characters");
             });

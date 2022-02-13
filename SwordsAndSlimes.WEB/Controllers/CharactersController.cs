@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -61,7 +60,7 @@ namespace SwordsAndSlimes.WEB.Controllers
         [Authorize(Roles = "Administrator")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind("Name,Health,Attack,Level,Class")] CharacterIndexViewModel character)
+        public ActionResult Create([Bind()] CharacterIndexViewModel character)
         {
             if (ModelState.IsValid)
             {
@@ -93,7 +92,7 @@ namespace SwordsAndSlimes.WEB.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Administrator")]
-        public ActionResult Edit(string id, [Bind("Name,Health,Attack,Level,Class")] CharacterIndexViewModel character)
+        public ActionResult Edit(string id, [Bind()] CharacterIndexViewModel character)
         {
             if (id != character.Name)
             {
